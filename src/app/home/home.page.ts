@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { CameraPreview, CameraPreviewOptions } from '@capacitor-community/camera-preview';
+import {
+  CameraPreview,
+  CameraPreviewOptions,
+} from '@capacitor-community/camera-preview';
 
 const cameraPreviewOptions: CameraPreviewOptions = {
   position: 'front',
-  height: 1920,
-  width: 1080
+  enableZoom: true,
 };
-CameraPreview.start(cameraPreviewOptions);
 
 @Component({
   selector: 'app-home',
@@ -17,5 +18,7 @@ CameraPreview.start(cameraPreviewOptions);
   imports: [IonicModule],
 })
 export class HomePage {
-  constructor() {}
+  constructor() {
+    CameraPreview.start(cameraPreviewOptions);
+  }
 }
